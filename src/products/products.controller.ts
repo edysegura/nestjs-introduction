@@ -14,7 +14,7 @@ export class ProductsController {
   }
 
   @Get()
-  getAll() {
+  getAll(): Product[] {
     return this.productsService.list();
   }
 }
