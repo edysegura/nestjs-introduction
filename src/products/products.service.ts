@@ -4,14 +4,18 @@ import { Product } from "./product.model";
 
 @Injectable()
 export class ProductsService {
-  products: Product[] = [];
+  private products: Product[] = [];
 
-  insert(title: string, description: string, price: number) {
-    const newProduct = new Product(
-      String(Date.now()),
-      title,
-      description,
-      price
-    );
+  create(product: Product): Product {
+    const newProduct: Product = {
+      id: String(Date.now()),
+      ...product
+    };
+    this.products.push(newProduct)
+    return newProduct;
+  }
+
+  list(): Product[] {
+    return [...this.products];
   }
 }
