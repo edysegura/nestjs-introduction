@@ -22,7 +22,7 @@ export class ProductsService {
   }
 
   getById(id: string): Product {
-    const [product] = this.findProduct(id)
+    const [product] = this.findProduct(id);
 
     if (!product) {
       throw new NotFoundException('Could not found a product');
@@ -33,8 +33,8 @@ export class ProductsService {
 
   private findProduct(id: string): [Product, number] {
     const byId = (product: Product) => product.id === id;
-    const index = this.products.findIndex(byId)
-    const product = this.products[index]
-    return [product, index]
+    const index = this.products.findIndex(byId);
+    const product = this.products[index];
+    return [product, index];
   }
 }
