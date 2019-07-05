@@ -9,7 +9,7 @@ export class ProductsController {
 
   @Post()
   add(@Body() product: Product): Product {
-    const newProduct = this.productsService.create(product)
+    const newProduct = this.productsService.create(product);
     return newProduct;
   }
 
@@ -25,6 +25,6 @@ export class ProductsController {
 
   @Patch(':id')
   update(@Param() productId: string, @Body() product: Product) {
-    return this.productsService.update(product, productId)
+    return this.productsService.update(product, productId);
   }
 }
