@@ -28,7 +28,14 @@ export class ProductsService {
       throw new NotFoundException('Could not found a product');
     }
 
-    return { ...product }
+    return { ...product };
+  }
+
+  update(updatedProduct: Product, productId: string) {
+    const [product, index] = this.findProduct(productId);
+    const mergedProject = { ...product, ...updatedProduct };
+    this.products[index] = mergedProject;
+    return { ...mergedProject };
   }
 
   private findProduct(id: string): [Product, number] {
