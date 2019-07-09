@@ -54,4 +54,10 @@ export class ProductsService {
 
     return [product, index];
   }
+
+  private checkProduct(product: Product) {
+    if (!product) {
+      throw new NotFoundException('Could not found a product');
+    }
+  }
 }
