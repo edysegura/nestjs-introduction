@@ -31,8 +31,13 @@ export class ProductsService {
     return { ...product };
   }
 
-  update(updatedProduct: Product, productId: string) {
-    const [product, index] = this.findProduct(productId);
+  update(updatedProduct: Product, id: string) {
+    const [product, index] = this.findProduct(id);
+
+    if (!product) {
+      throw new NotFoundException('Could not found a product');
+    }
+
     const mergedProject = { ...product, ...updatedProduct };
     this.products[index] = mergedProject;
     return { ...mergedProject };
@@ -41,7 +46,12 @@ export class ProductsService {
   private findProduct(id: string): [Product, number] {
     const byId = (product: Product) => product.id === id;
     const index = this.products.findIndex(byId);
-    const product = this.products[index];
+    let product: Product;
+
+    if (index > -1) {
+      product = this.products[index];
+    }
+
     return [product, index];
   }
 }
