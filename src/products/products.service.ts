@@ -24,9 +24,7 @@ export class ProductsService {
   getById(id: string): Product {
     const [product] = this.findProduct(id);
 
-    if (!product) {
-      throw new NotFoundException('Could not found a product');
-    }
+    this.checkProduct(product);
 
     return { ...product };
   }
