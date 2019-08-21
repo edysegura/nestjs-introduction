@@ -15,8 +15,8 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return "The APIs are ready on http://localhost:3000"', () => {
+      expect(appController.getHello()).toBe('The APIs are ready on http://localhost:3000');
     });
   });
 });
