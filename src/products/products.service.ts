@@ -40,6 +40,36 @@ export class ProductsService {
     return { ...mergedProject };
   }
 
+  fillHateoas(): any[] {
+    return [
+      {
+        "rel": "add_product",
+        "href": "/product",
+        "method": "POST"
+      },
+      {
+        "rel": "delete_product",
+        "href": "/product/{?productId}",
+        "method": "DELETE"
+      },
+      {
+        "rel": "update_product",
+        "href": "/product/{?productId}",
+        "method": "PATCH"
+      },
+      {
+        "rel": "get_product",
+        "href": "/product/{?productId}",
+        "method": "GET"
+      },
+      {
+        "rel": "list_product",
+        "href": "/product",
+        "method": "GET"
+      }
+    ];
+  }
+
   private findProduct(id: string): [Product, number] {
     const byId = (product: Product) => product.id === id;
     const index = this.products.findIndex(byId);

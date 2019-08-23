@@ -9,7 +9,8 @@ export class ProductsController {
 
   @Post()
   add(@Body() product: Product): Product {
-    const newProduct = this.productsService.create(product);
+    const newProduct = { ...this.productsService.create(product)};
+    newProduct.links = this.productsService.fillHateoas();
     return newProduct;
   }
 
