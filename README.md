@@ -39,6 +39,7 @@ $ npm run test:cov
 - [Nest.js Official Site](https://nestjs.com/)
 - [Learn Nest.js from Stratch by building an API](https://www.youtube.com/watch?v=F_oOtaxb0L8)
 - [Nest.js with MongoDB](https://www.youtube.com/watch?v=ulfU5vY6I78)
+- [Nest.js Tutorial: Build your First REST API CRUD App with TypeORM](https://www.techiediaries.com/nestjs-tutorial-rest-api-crud/)
 
 ## License
 
